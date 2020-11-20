@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "336067402026",
+    "firebase_url": "https://susu-messenger-9575c.firebaseio.com",
+    "project_id": "susu-messenger-9575c",
+    "storage_bucket": "susu-messenger-9575c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336067402026:android:731909ae8a7bceda74e653",
+        "android_client_info": {
+          "package_name": "com.punreachrany.Susu_Messenger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "336067402026-97ai654j9egshhinci6pob2hf750s3mr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAw2dRAgPurbWXJcM85RlZQKu5CUgU14Mc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "336067402026-97ai654j9egshhinci6pob2hf750s3mr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

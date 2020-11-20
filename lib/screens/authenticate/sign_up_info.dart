@@ -3,7 +3,6 @@ import 'package:Susu_Messenger/shares/loading.dart';
 import 'package:Susu_Messenger/themes/hexColor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class SignUpInfo extends StatefulWidget {
   @override

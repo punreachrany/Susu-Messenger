@@ -1,4 +1,4 @@
-package com.example.Susu_Messenger
+package com.punreachrany.Susu_Messenger
 
 import io.flutter.embedding.android.FlutterActivity
 
