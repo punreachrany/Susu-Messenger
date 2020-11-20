@@ -1,4 +1,5 @@
-import 'package:Susu_Messenger/navigation_wrapper.dart';
+import 'package:Susu_Messenger/screens/landing/landing_wrapper.dart';
+import 'package:Susu_Messenger/screens/navigation_wrapper.dart';
 import 'package:Susu_Messenger/screens/authenticate/login.dart';
 import 'package:Susu_Messenger/screens/authenticate/sign_up.dart';
 import 'package:Susu_Messenger/screens/authenticate/sign_up_info.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: NavigationWrapper(),
+      home: LandingWrapper(),
     );
   }
 }

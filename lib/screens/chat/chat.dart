@@ -1,3 +1,4 @@
+import 'package:Susu_Messenger/screens/chat/chatroom.dart';
 import 'package:flutter/material.dart';
 
 class Chat extends StatefulWidget {
@@ -57,6 +58,12 @@ class _ChatState extends State<Chat> {
             trailing: Icon(Icons.arrow_forward),
             onTap: () {
               print(groupChat[index]["name"]);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Chatroom(),
+                ),
+              );
             },
           );
         },
