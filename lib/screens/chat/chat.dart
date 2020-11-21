@@ -18,6 +18,7 @@ class _ChatState extends State<Chat> {
     {"name": "Sogang University", "picture": Icons.school},
     {"name": "Kunkok University", "picture": Icons.school},
     {"name": "Ewha University", "picture": Icons.school},
+    {"name": "Reach University", "picture": Icons.school},
   ];
   @override
   Widget build(BuildContext context) {
