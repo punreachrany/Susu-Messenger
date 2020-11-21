@@ -1,3 +1,4 @@
+import 'package:Susu_Messenger/screens/authenticate/sign_up.dart';
 import 'package:Susu_Messenger/screens/successful/successful.dart';
 import 'package:Susu_Messenger/services/auth.dart';
 import 'package:Susu_Messenger/shares/loading.dart';
@@ -15,8 +16,8 @@ class _LoginState extends State<Login> {
   bool loading = false;
 
   // text field state
-  String email = '';
-  String password = '';
+  String email;
+  String password;
   String error = '';
   bool checkBoxValue = false;
   //
@@ -127,7 +128,7 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                       SizedBox(
-                        height: 70,
+                        height: 30,
                       ),
                       Container(
                         padding: EdgeInsets.only(
@@ -138,12 +139,28 @@ class _LoginState extends State<Login> {
                           elevation: 5.0,
                           onPressed: () async {
                             if (_formKey.currentState.validate()) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Successful(),
-                                ),
-                              );
+                              setState(() {
+                                loading = true;
+                              });
+
+                              dynamic result =
+                                  await _auth.signInWithEmailAndPassword(
+                                      email: email, password: password);
+
+                              if (!result) {
+                                setState(() {
+                                  loading = false;
+                                });
+                              }
+
+                              await _auth.signInWithEmailAndPassword(
+                                  email: email, password: password);
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //     builder: (context) => Successful(),
+                              //   ),
+                              // );
                             } else {
                               error =
                                   'Validation Failed: Please put the right information.';
@@ -156,6 +173,37 @@ class _LoginState extends State<Login> {
                           color: HexColor('#53BDF9'),
                           child: Text(
                             '로그인',
+                            style: TextStyle(
+                              color: Colors.white,
+                              //letterSpacing: 1.5,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(
+                          top: 25.0,
+                        ),
+                        width: double.infinity,
+                        child: RaisedButton(
+                          elevation: 5.0,
+                          onPressed: () async {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SignUp(),
+                              ),
+                            );
+                          },
+                          padding: EdgeInsets.all(12.0),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          color: HexColor('#53BDF9'),
+                          child: Text(
+                            'Register',
                             style: TextStyle(
                               color: Colors.white,
                               //letterSpacing: 1.5,

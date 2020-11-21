@@ -13,8 +13,8 @@ class _SignUpState extends State<SignUp> {
   bool loading = false;
 
   // text field state
-  String email = '';
-  String password = '';
+  String email;
+  String password;
   String error = '';
   bool checkBoxValue = false;
   //
@@ -127,50 +127,6 @@ class _SignUpState extends State<SignUp> {
                       obscureText: true,
                     ),
                   ),
-                  GestureDetector(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Expanded(
-                          child: Container(
-                            //color: Colors.red,
-                            alignment: Alignment.centerLeft,
-                            child: Checkbox(
-                              value: checkBoxValue,
-                              activeColor: HexColor('#53BDF9'),
-                              //tristate: true,
-                              onChanged: (bool newValue) {
-                                setState(() {
-                                  checkBoxValue = newValue;
-                                });
-                              },
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Expanded(
-                          flex: 18,
-                          //padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            //'hhahaha',
-                            '회원가입 시 이용약과, 개인정보처리방침, 위치기반 서비스 이용약관에 동의합니다.',
-                            overflow: TextOverflow.ellipsis,
-                            textDirection: TextDirection.ltr,
-                            textAlign: TextAlign.justify,
-                            maxLines: 2,
-                            style: TextStyle(
-                              fontSize: 11,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
                   Container(
                     padding: EdgeInsets.only(
                       top: 25.0,
@@ -183,7 +139,8 @@ class _SignUpState extends State<SignUp> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => SignUpInfo(),
+                              builder: (context) =>
+                                  SignUpInfo(email: email, password: password),
                             ),
                           );
                         } else {
