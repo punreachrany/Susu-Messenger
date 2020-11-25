@@ -8,9 +8,11 @@ class AuthService {
 
   LoginUser _userFromFirebaseUser(User user) {
     print("In userfromfirebase");
+    // print("email : ${user.email}");
     return user != null
         ? LoginUser(
             uid: user.uid,
+            email: user.email,
           )
         : null;
   }

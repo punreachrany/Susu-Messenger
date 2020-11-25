@@ -1,9 +1,5 @@
 import 'package:Susu_Messenger/screens/landing/landing_wrapper.dart';
-import 'package:Susu_Messenger/screens/navigation_wrapper.dart';
-import 'package:Susu_Messenger/screens/authenticate/login.dart';
-import 'package:Susu_Messenger/screens/authenticate/sign_up.dart';
-import 'package:Susu_Messenger/screens/authenticate/sign_up_info.dart';
-import 'package:Susu_Messenger/screens/home/home_wrapper.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 

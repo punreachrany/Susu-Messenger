@@ -1,5 +1,9 @@
+import 'package:Susu_Messenger/models/login_user.dart';
 import 'package:Susu_Messenger/screens/chat/chatroom.dart';
+import 'package:Susu_Messenger/screens/chat/chatroom_wrapper.dart';
+import 'package:Susu_Messenger/services/auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Chat extends StatefulWidget {
   @override
@@ -22,6 +26,9 @@ class _ChatState extends State<Chat> {
   ];
   @override
   Widget build(BuildContext context) {
+    final AuthService _auth = AuthService();
+    final user = Provider.of<LoginUser>(context);
+    print("${user.uid}");
     return Scaffold(
       appBar: AppBar(
         leading: Icon(
@@ -62,7 +69,7 @@ class _ChatState extends State<Chat> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Chatroom(),
+                  builder: (context) => ChatroomWrapper(),
                 ),
               );
             },

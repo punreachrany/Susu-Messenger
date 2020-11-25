@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:Susu_Messenger/models/login_user.dart';
 import 'package:Susu_Messenger/screens/chat/chat_wrapper.dart';
 import 'package:Susu_Messenger/screens/home/home_wrapper.dart';
 import 'package:Susu_Messenger/screens/setting/setting_wrapper.dart';
@@ -7,6 +8,7 @@ import 'package:Susu_Messenger/themes/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:provider/provider.dart';
 
 class NavigationWrapper extends StatefulWidget {
   @override
@@ -30,8 +32,9 @@ class _NavigationWrapperState extends State<NavigationWrapper> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    final user = Provider.of<LoginUser>(context);
 
-    print("In Navigation Wrapper");
+    print("In Navigation Wrapper : ${user.uid}");
 
     //
 
