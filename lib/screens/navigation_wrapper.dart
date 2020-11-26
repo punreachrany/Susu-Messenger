@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:Susu_Messenger/models/login_user.dart';
 import 'package:Susu_Messenger/screens/chat/chat_wrapper.dart';
 import 'package:Susu_Messenger/screens/home/home_wrapper.dart';
+
 import 'package:Susu_Messenger/screens/setting/setting_wrapper.dart';
 import 'package:Susu_Messenger/themes/colors.dart';
 import 'package:flutter/cupertino.dart';
@@ -101,7 +102,7 @@ class _NavigationWrapperState extends State<NavigationWrapper> {
                       // Icons.show_chart,
                       // Icons.dashboard,
                       //Icons.crop_square,
-                      Icons.chat,
+                      Icons.chat_bubble,
                       color:
                           currentTab == 1 ? bottomNavigatorColor : Colors.grey,
                     ),
@@ -148,6 +149,35 @@ class _NavigationWrapperState extends State<NavigationWrapper> {
                 ),
                 minWidth: width / 4,
               ),
+              // // Setting
+              // MaterialButton(
+              //   onPressed: () {
+              //     setState(() {
+              //       currentScreen = OtherChatUI();
+              //       currentTab = 3;
+              //     });
+              //   },
+              //   child: Column(
+              //     mainAxisAlignment: MainAxisAlignment.center,
+              //     children: <Widget>[
+              //       Icon(
+              //         Icons.chat_bubble,
+              //         color:
+              //             currentTab == 3 ? bottomNavigatorColor : Colors.grey,
+              //       ),
+              //       Text(
+              //         "Setting",
+              //         style: TextStyle(
+              //           color: currentTab == 3
+              //               ? bottomNavigatorColor
+              //               : Colors.grey,
+              //           fontSize: 10,
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              //   minWidth: width / 4,
+              // ),
             ],
           ),
         ),
