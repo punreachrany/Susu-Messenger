@@ -1,4 +1,5 @@
 import 'package:Susu_Messenger/models/login_user.dart';
+import 'package:Susu_Messenger/models/university.dart';
 import 'package:Susu_Messenger/screens/chat/chatroom.dart';
 import 'package:Susu_Messenger/screens/chat/chatroom_wrapper.dart';
 
@@ -27,6 +28,10 @@ class _ChatState extends State<Chat> {
   ];
   @override
   Widget build(BuildContext context) {
+    final universities = Provider.of<List<University>>(context) ?? [];
+    // universities.forEach((university) {
+    //   print(university.id);
+    // });
     return Scaffold(
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -48,13 +53,13 @@ class _ChatState extends State<Chat> {
                           EdgeInsets.only(left: 8, right: 8, top: 2, bottom: 2),
                       height: 30,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.pink[50]),
+                          borderRadius: BorderRadius.circular(25),
+                          color: Colors.lightBlue[100]),
                       child: Row(
                         children: <Widget>[
                           Icon(
                             Icons.add,
-                            color: Colors.pink,
+                            color: Colors.black,
                             size: 20,
                           ),
                           SizedBox(
@@ -95,23 +100,50 @@ class _ChatState extends State<Chat> {
             ),
             // ListView.builder(itemBuilder: null)
 
-            ListView.builder(
-              itemCount: groupChat.length,
+            ListView.separated(
+              itemCount: universities.length,
               shrinkWrap: true,
               padding: EdgeInsets.only(top: 16),
               physics: NeverScrollableScrollPhysics(),
+              separatorBuilder: (context, index) {
+                return Divider();
+              },
               itemBuilder: (context, index) {
                 return ListTile(
-                  leading: Icon(groupChat[index]["picture"]),
-                  title: Text(groupChat[index]["name"]),
-                  subtitle: Text("People are talking"),
-                  trailing: Icon(Icons.arrow_forward),
+                  dense: false,
+                  leading: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      CircleAvatar(
+                        radius: 21,
+                        backgroundColor: Colors.grey[100],
+                        child: CircleAvatar(
+                          backgroundColor: Colors.white,
+                          backgroundImage: AssetImage(
+                              "assets/images/${universities[index].id.toLowerCase().replaceAll(" ", "_")}.png"),
+                          maxRadius: 20,
+                        ),
+                      ),
+                      VerticalDivider(),
+                    ],
+                  ),
+
+                  // leading: Icon(Icons.school),
+                  title: Text(
+                    universities[index].id,
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  // subtitle: Text("People are talking"),
+                  trailing: Icon(Icons.keyboard_arrow_right,
+                      color: Colors.grey[500], size: 30.0),
+
                   onTap: () {
-                    print(groupChat[index]["name"]);
+                    print(universities[index].id);
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ChatroomWrapper(),
+                        builder: (context) =>
+                            ChatroomWrapper(university: universities[index].id),
                         // builder: (context) => OtherChatUI(),
                       ),
                     );

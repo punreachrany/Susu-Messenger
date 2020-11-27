@@ -1,5 +1,7 @@
 import 'package:Susu_Messenger/models/chatroom_list.dart';
 import 'package:Susu_Messenger/models/conversation.dart';
+import 'package:Susu_Messenger/models/university.dart';
+import 'package:Susu_Messenger/models/user_information.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -18,6 +20,10 @@ class User_DatabaseService {
   // collection reference
   final CollectionReference chatroomCollection =
       FirebaseFirestore.instance.collection('chatrooms');
+
+  //     // collection reference
+  // final CollectionReference universityCollection =
+  //     FirebaseFirestore.instance.collection('chatrooms');
 
   Future createUserData({
     String email,
@@ -70,11 +76,11 @@ class User_DatabaseService {
   }
 
   //Get all conversation
-  Stream<List<Conversation>> get chatroomMesssages {
+  Stream<List<Conversation>> chatroomMesssages({String chatroomID}) {
     //print('in allUserData');
     print("Inside getChatroomMesssages");
     return chatroomCollection
-        .doc('devil@yahoo.com_punreach@yahoo.com')
+        .doc(chatroomID)
         .collection("chats")
         .orderBy("date", descending: true)
         .snapshots()
@@ -102,5 +108,36 @@ class User_DatabaseService {
         .collection("chats")
         .snapshots()
         .map(_userList);
+  }
+
+  // get all University Chatroom
+  Stream<List<University>> get universityData {
+    return chatroomCollection.snapshots().map(_universityList);
+  }
+
+  List<University> _universityList(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      final dataInfo = doc.data();
+      return University(
+        id: dataInfo["id"] ?? null,
+      );
+    }).toList();
+  }
+
+  // get all University Chatroom
+  Stream<List<UserInformation>> get userData {
+    return userCollection.snapshots().map(_userDataList);
+  }
+
+  List<UserInformation> _userDataList(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      final dataInfo = doc.data();
+      return UserInformation(
+        uid: dataInfo["uid"] ?? null,
+        name: dataInfo["name"] ?? null,
+        email: dataInfo["email"] ?? null,
+        university: dataInfo["university"] ?? null,
+      );
+    }).toList();
   }
 }

@@ -2,23 +2,24 @@ import 'dart:async';
 
 import 'package:Susu_Messenger/models/conversation.dart';
 import 'package:Susu_Messenger/models/login_user.dart';
+import 'package:Susu_Messenger/models/user_information.dart';
 import 'package:Susu_Messenger/services/database.dart';
 import 'package:Susu_Messenger/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class Chatroom extends StatefulWidget {
-  final String uid;
+  final String university;
 
-  const Chatroom({Key key, this.uid}) : super(key: key);
+  const Chatroom({Key key, this.university}) : super(key: key);
 
   @override
-  _ChatroomState createState() => _ChatroomState(uid);
+  _ChatroomState createState() => _ChatroomState(university);
 }
 
 class _ChatroomState extends State<Chatroom> {
-  String uid;
-  _ChatroomState(this.uid);
+  String university;
+  _ChatroomState(this.university);
   // ScrollController controller;
   TextEditingController messageController = new TextEditingController();
   List<Map> chat;
@@ -168,6 +169,7 @@ class _ChatroomState extends State<Chatroom> {
                               color: Colors.black, fontWeight: FontWeight.bold),
                         ),
                       ),
+                isSameUser ? Container() : Divider(),
               ],
             ),
           ),
@@ -269,9 +271,14 @@ class _ChatroomState extends State<Chatroom> {
   Widget build(BuildContext context) {
     // print("User $uid");
     final messages = Provider.of<List<Conversation>>(context) ?? [];
-    final user = Provider.of<LoginUser>(context) ?? null;
+    final users = Provider.of<List<UserInformation>>(context) ?? [];
+    final current_user = Provider.of<LoginUser>(context) ?? null;
 
     String prevUserID;
+
+    // users.forEach((element) {
+    //   print(element.name);
+    // });
 
     // ==========
     // controller.animateTo(controller.position.maxScrollExtent,
@@ -300,7 +307,9 @@ class _ChatroomState extends State<Chatroom> {
                   width: 2,
                 ),
                 CircleAvatar(
-                  backgroundImage: AssetImage("assets/images/hanyang.jpg"),
+                  backgroundColor: Colors.white,
+                  backgroundImage: AssetImage(
+                      "assets/images/${university.toLowerCase().replaceAll(" ", "_")}.png"),
                   maxRadius: 20,
                 ),
                 SizedBox(
@@ -312,7 +321,7 @@ class _ChatroomState extends State<Chatroom> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        "Hanyang",
+                        university,
                         style: TextStyle(fontWeight: FontWeight.w600),
                       ),
                       SizedBox(
@@ -347,82 +356,31 @@ class _ChatroomState extends State<Chatroom> {
 
               prevUserID = messages[index].senderID;
 
-              if (messages[index].senderID == user.uid) {
+              if (messages[index].senderID == current_user.uid) {
                 return userMessage(
                     messages: messages[index].message,
-                    username: messages[index].senderEmail,
+                    // username: messages[index].senderID,
+                    username: users
+                        .where((element) =>
+                            element.uid == messages[index].senderID)
+                        .toList()[0]
+                        .name,
                     index: index,
                     isSameUser: isSameUser);
               } else {
                 return otherPeopleMessage(
                   messages: messages[index].message,
-                  username: messages[index].senderEmail,
+                  username: users
+                      .where(
+                          (element) => element.uid == messages[index].senderID)
+                      .toList()[0]
+                      .name,
                   index: index,
                   isSameUser: isSameUser,
                 );
               }
             },
           ),
-          // Positioned(
-          //   child: Align(
-          //     alignment: Alignment.bottomCenter,
-          //     child: Container(
-          //       // height: 50,
-          //       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          //       width: double.infinity,
-          //       color: Colors.grey[200],
-          //       // decoration: BoxDecoration(
-          //       //     border: Border(top: BorderSide(color: primaryColor, width: 2.0))),
-          //       // height: 40
-          //       child: Row(
-          //         mainAxisAlignment: MainAxisAlignment.center,
-          //         crossAxisAlignment: CrossAxisAlignment.center,
-          //         children: <Widget>[
-          //           Expanded(flex: 1, child: Icon(Icons.add_box)),
-          //           Expanded(
-          //               flex: 8,
-          //               child: Container(
-          //                 // padding: EdgeInsets.symmetric(vertical: 10),
-          //                 decoration: BoxDecoration(
-          //                     color: Colors.white,
-          //                     border: Border.all(
-          //                       color: Colors.grey[300],
-          //                       width: 1,
-          //                     ),
-          //                     borderRadius: BorderRadius.circular(20)),
-          //                 child: TextFormField(
-          //                   controller: messageController,
-          //                   maxLines: 1,
-          //                   decoration: new InputDecoration(
-          //                       border: InputBorder.none,
-          //                       focusedBorder: InputBorder.none,
-          //                       enabledBorder: InputBorder.none,
-          //                       errorBorder: InputBorder.none,
-          //                       disabledBorder: InputBorder.none,
-          //                       contentPadding: EdgeInsets.symmetric(
-          //                         vertical: 10,
-          //                         horizontal: 10,
-          //                       ),
-          //                       hintText: 'Type your message'),
-          //                 ),
-          //               )),
-          //           Expanded(
-          //               flex: 1,
-          //               child: InkWell(
-          //                   onTap: () async {
-          //                     await sendMessage(
-          //                         "devil@yahoo.com_punreach@yahoo.com",
-          //                         user.uid,
-          //                         user.email);
-          //                     // controller
-          //                     //     .jumpTo(controller.position.maxScrollExtent);
-          //                   },
-          //                   child: Icon(Icons.send)))
-          //         ],
-          //       ),
-          //     ),
-          //   ),
-          // )
           Align(
             alignment: Alignment.bottomLeft,
             child: Container(
@@ -471,22 +429,16 @@ class _ChatroomState extends State<Chatroom> {
                           ),
                           hintText: 'Type your message'),
                     ),
-
-                    // TextField(
-                    //   decoration: InputDecoration(
-                    //       hintText: "Type message...",
-                    //       hintStyle: TextStyle(color: Colors.grey.shade500),
-                    //       border: InputBorder.none),
-                    // ),
                   ),
                   Expanded(
                       flex: 1,
                       child: InkWell(
                           onTap: () async {
                             await sendMessage(
-                                "devil@yahoo.com_punreach@yahoo.com",
-                                user.uid,
-                                user.email);
+                              university,
+                              current_user.uid,
+                              current_user.email,
+                            );
                             // controller
                             //     .jumpTo(controller.position.maxScrollExtent);
                           },
