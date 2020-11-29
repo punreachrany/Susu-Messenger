@@ -75,6 +75,7 @@ class _DeveloperState extends State<Developer> {
             //   ),
             // ),
             Container(
+              // height: 100,
               padding:
                   EdgeInsets.only(left: 30, right: 30, top: 30, bottom: 15),
               decoration: BoxDecoration(),
@@ -108,7 +109,7 @@ class _DeveloperState extends State<Developer> {
                           Text(
                             "Punreach Rany",
                             style: TextStyle(
-                              fontSize: 30,
+                              fontSize: 26,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: 'NanumSquareRound',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: LandingWrapper(),
