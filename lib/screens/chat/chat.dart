@@ -13,19 +13,19 @@ class Chat extends StatefulWidget {
 }
 
 class _ChatState extends State<Chat> {
-  List<Map> groupChat = [
-    {"name": "Hanyang University", "picture": Icons.school},
-    {"name": "Yonsei University", "picture": Icons.school},
-    {"name": "Korea University", "picture": Icons.school},
-    {"name": "Seoul National University", "picture": Icons.school},
-    {"name": "Kyunghee University", "picture": Icons.school},
-    {"name": "Sungkyunkwan University", "picture": Icons.school},
-    {"name": "Jungang University", "picture": Icons.school},
-    {"name": "Sogang University", "picture": Icons.school},
-    {"name": "Kunkok University", "picture": Icons.school},
-    {"name": "Ewha University", "picture": Icons.school},
-    {"name": "Reach University", "picture": Icons.school},
-  ];
+  // List<Map> groupChat = [
+  //   {"name": "Hanyang University", "picture": Icons.school},
+  //   {"name": "Yonsei University", "picture": Icons.school},
+  //   {"name": "Korea University", "picture": Icons.school},
+  //   {"name": "Seoul National University", "picture": Icons.school},
+  //   {"name": "Kyunghee University", "picture": Icons.school},
+  //   {"name": "Sungkyunkwan University", "picture": Icons.school},
+  //   {"name": "Jungang University", "picture": Icons.school},
+  //   {"name": "Sogang University", "picture": Icons.school},
+  //   {"name": "Kunkok University", "picture": Icons.school},
+  //   {"name": "Ewha University", "picture": Icons.school},
+  //   {"name": "Reach University", "picture": Icons.school},
+  // ];
   @override
   Widget build(BuildContext context) {
     final universities = Provider.of<List<University>>(context) ?? [];
