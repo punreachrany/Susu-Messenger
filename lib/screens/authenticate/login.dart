@@ -27,228 +27,227 @@ class _LoginState extends State<Login> {
     return loading
         ? Loading()
         : Scaffold(
-            appBar: AppBar(
-              elevation: 0.0,
-              backgroundColor: Colors.white,
-              // leading: IconButton(
-              //   icon: Icon(Icons.arrow_back_ios, color: Colors.black),
-              //   //onPressed: () => widget.toggleView()
-              //   // onPressed: () => Navigator.pop(context),
-              // ),
-            ),
-            backgroundColor: Colors.white,
-            body: Container(
-              //alignment: Alignment.center,
-              width: double.infinity,
-              height: double.infinity,
-              child: SingleChildScrollView(
-                //physics: AlwaysScrollableScrollPhysics(),
-                padding: EdgeInsets.symmetric(
-                  horizontal: 40.0,
-                  vertical: 30,
-                ),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          '이메일',
-                          style: TextStyle(
-                            fontSize: 36,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          '로그인',
-                          style: TextStyle(
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 70,
-                      ),
-                      Container(
-                        //padding: EdgeInsets.symmetric(vertical: 5.0),
-                        child: TextFormField(
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: InputDecoration(
-                            border: UnderlineInputBorder(),
-                            hintText: '이메일 입력',
-                            hintStyle: TextStyle(
-                              color: Colors.grey[600],
-                              fontSize: 20,
-                            ),
-                          ),
-                          validator: (val) => val.isEmpty || !val.contains('@')
-                              ? 'Enter a valid email'
-                              : null,
-                          onChanged: (val) {
-                            setState(() => email = val);
-                          },
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.symmetric(vertical: 5.0),
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            border: UnderlineInputBorder(),
-                            hintText: '비밀번호 입력',
-                            hintStyle: TextStyle(
-                              color: Colors.grey[600],
-                              fontSize: 20,
-                            ),
-                          ),
-                          validator: (val) => val.length < 6
-                              ? 'Enter a password 6+char long'
-                              : null,
-                          onChanged: (val) {
-                            setState(() => password = val);
-                          },
-                          obscureText: true,
-                        ),
-                      ),
-                      Container(
-                        alignment: Alignment.centerRight,
-                        child: InkWell(
-                          onTap: () {},
-                          child: Text(
-                            '아이디/비밀번호 찾기',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey,
+            backgroundColor: Color(0xFF2980b9),
+            body: Stack(
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+                  child: SingleChildScrollView(
+                    physics: AlwaysScrollableScrollPhysics(),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Container(
+                          padding: EdgeInsets.symmetric(vertical: 30),
+                          child: Center(
+                            child: Text(
+                              "SUSU Messenger",
+                              style: TextStyle(
+                                  fontSize: 40,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.center,
                             ),
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(
-                          top: 25.0,
-                        ),
-                        width: double.infinity,
-                        child: RaisedButton(
-                          elevation: 5.0,
-                          onPressed: () async {
-                            if (_formKey.currentState.validate()) {
-                              setState(() {
-                                loading = true;
-                              });
-
-                              dynamic result =
-                                  await _auth.signInWithEmailAndPassword(
-                                      email: email, password: password);
-
-                              if (!result) {
-                                setState(() {
-                                  loading = false;
-                                });
-                              }
-
-                              await _auth.signInWithEmailAndPassword(
-                                  email: email, password: password);
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (context) => Successful(),
-                              //   ),
-                              // );
-                            } else {
-                              error =
-                                  'Validation Failed: Please put the right information.';
-                            }
-                          },
-                          padding: EdgeInsets.all(12.0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          color: HexColor('#53BDF9'),
-                          child: Text(
-                            '로그인',
-                            style: TextStyle(
-                              color: Colors.white,
-                              //letterSpacing: 1.5,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(
-                          top: 25.0,
-                        ),
-                        width: double.infinity,
-                        child: RaisedButton(
-                          elevation: 5.0,
-                          onPressed: () async {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => SignUp(),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 25),
+                          child: Center(
+                            child: Text(
+                              "We would like to bring your university into your hands",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
                               ),
-                            );
-                          },
-                          padding: EdgeInsets.all(12.0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          color: HexColor('#53BDF9'),
-                          child: Text(
-                            'Register',
-                            style: TextStyle(
-                              color: Colors.white,
-                              //letterSpacing: 1.5,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
+                              textAlign: TextAlign.center,
                             ),
                           ),
                         ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(
-                          top: 25.0,
-                        ),
-                        width: double.infinity,
-                        child: RaisedButton(
-                          elevation: 5.0,
-                          onPressed: () async {
-                            setState(() {
-                              loading = true;
-                            });
-                            await _auth.signAnonymously();
-                            setState(() {
-                              loading = false;
-                            });
-                          },
-                          padding: EdgeInsets.all(12.0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          color: HexColor('#53BDF9'),
-                          child: Text(
-                            'Sign In Anonymously',
-                            style: TextStyle(
-                              color: Colors.white,
-                              //letterSpacing: 1.5,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-              ),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 40),
+                  width: double.infinity,
+                  transform: Matrix4.translationValues(0, 250, 1),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30))),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+                          padding: EdgeInsets.only(top: 40, bottom: 30),
+                          child: Text(
+                            "Login to Continue",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Container(
+                          //padding: EdgeInsets.symmetric(vertical: 5.0),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 3.0, horizontal: 15),
+                          decoration: BoxDecoration(
+                              border:
+                                  Border.all(color: Colors.grey[300], width: 2),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: TextFormField(
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              // labelText: "Email",
+                              hintText: 'Email',
+                              hintStyle: TextStyle(
+                                color: Colors.grey[600],
+                                fontSize: 16,
+                              ),
+                            ),
+                            validator: (val) =>
+                                val.isEmpty || !val.contains('@')
+                                    ? 'Enter a valid email'
+                                    : null,
+                            onChanged: (val) {
+                              setState(() => email = val);
+                            },
+                          ),
+                        ),
+                        SizedBox(height: 5),
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 3.0, horizontal: 15),
+                          decoration: BoxDecoration(
+                              border:
+                                  Border.all(color: Colors.grey[300], width: 2),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Passwords',
+                              hintStyle: TextStyle(
+                                color: Colors.grey[600],
+                                fontSize: 16,
+                              ),
+                            ),
+                            validator: (val) => val.length < 6
+                                ? 'Enter a password 6+char long'
+                                : null,
+                            onChanged: (val) {
+                              setState(() => password = val);
+                            },
+                            obscureText: true,
+                          ),
+                        ),
+                        SizedBox(height: 3),
+                        Container(
+                          alignment: Alignment.centerRight,
+                          child: InkWell(
+                            onTap: () {},
+                            child: Text(
+                              'Forgot Password',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: 25.0,
+                          ),
+                          width: double.infinity,
+                          child: RaisedButton(
+                            elevation: 5.0,
+                            onPressed: () async {
+                              if (_formKey.currentState.validate()) {
+                                setState(() {
+                                  loading = true;
+                                });
+
+                                dynamic result =
+                                    await _auth.signInWithEmailAndPassword(
+                                        email: email, password: password);
+
+                                if (!result) {
+                                  setState(() {
+                                    loading = false;
+                                  });
+                                }
+
+                                await _auth.signInWithEmailAndPassword(
+                                    email: email, password: password);
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: (context) => Successful(),
+                                //   ),
+                                // );
+                              } else {
+                                error =
+                                    'Validation Failed: Please put the right information.';
+                              }
+                            },
+                            padding: EdgeInsets.all(12.0),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            color: Color(0xFF2980b9),
+                            child: Text(
+                              'Login',
+                              style: TextStyle(
+                                color: Colors.white,
+                                //letterSpacing: 1.5,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: 25.0,
+                          ),
+                          width: double.infinity,
+                          child: RaisedButton(
+                            elevation: 5.0,
+                            onPressed: () async {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SignUp(),
+                                ),
+                              );
+                            },
+                            padding: EdgeInsets.all(12.0),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            color: Color(0xFF2980b9),
+                            child: Text(
+                              'Register a account',
+                              style: TextStyle(
+                                color: Colors.white,
+                                //letterSpacing: 1.5,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              ],
             ),
           );
   }

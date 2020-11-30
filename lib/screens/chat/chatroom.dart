@@ -48,10 +48,10 @@ class _ChatroomState extends State<Chatroom> {
 
   List<Map> menuItems = [
     {"text": "Photos & Videos", "icons": Icons.image, "color": Colors.amber},
-    {"text": "Document", "icons": Icons.image, "color": Colors.blue},
-    {"text": "Audio", "icons": Icons.image, "color": Colors.orange},
-    {"text": "Location", "icons": Icons.image, "color": Colors.green},
-    {"text": "Contact", "icons": Icons.image, "color": Colors.purple},
+    {"text": "Document", "icons": Icons.file_upload, "color": Colors.blue},
+    {"text": "Audio", "icons": Icons.audiotrack, "color": Colors.orange},
+    {"text": "Location", "icons": Icons.location_city, "color": Colors.green},
+    {"text": "Contact", "icons": Icons.contact_phone, "color": Colors.purple},
   ];
 
   void showModal() {
@@ -169,7 +169,9 @@ class _ChatroomState extends State<Chatroom> {
                               color: Colors.black, fontWeight: FontWeight.bold),
                         ),
                       ),
-                isSameUser ? Container() : Divider(),
+                isSameUser
+                    ? Container()
+                    : (index != 0 ? Divider() : Container()),
               ],
             ),
           ),
@@ -236,13 +238,12 @@ class _ChatroomState extends State<Chatroom> {
                               color: Colors.black, fontWeight: FontWeight.bold),
                         ),
                       ),
+                isSameUser
+                    ? Container()
+                    : (index != 0 ? Divider() : Container()),
               ],
             ),
           ),
-          // Expanded(
-          //   flex: 1,
-          //   child: Icon(Icons.person),
-          // ),
         ],
       ),
     );
@@ -284,14 +285,18 @@ class _ChatroomState extends State<Chatroom> {
     // controller.animateTo(controller.position.maxScrollExtent,
     //     duration: Duration(milliseconds: 0), curve: Curves.easeOut);
     return Scaffold(
+      backgroundColor: Colors.grey[100],
       // resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        toolbarHeight: 70,
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         flexibleSpace: SafeArea(
           child: Container(
-            padding: EdgeInsets.only(right: 16),
+            // height: 100,
+            // margin: EdgeInsets.only(top: 15),
+            padding: EdgeInsets.only(right: 16, top: 15, bottom: 15),
             child: Row(
               children: <Widget>[
                 IconButton(
@@ -384,10 +389,24 @@ class _ChatroomState extends State<Chatroom> {
           Align(
             alignment: Alignment.bottomLeft,
             child: Container(
-              padding: EdgeInsets.only(left: 16, bottom: 10),
-              height: 80,
+              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              // height: 80,
               width: double.infinity,
-              color: Colors.white,
+              // color: Colors.white,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.8),
+                    blurRadius: 20.0, // soften the shadow
+                    spreadRadius: 0.0, //extend the shadow
+                    offset: Offset(
+                      5.0, // Move to right 10  horizontally
+                      5.0, // Move to bottom 10 Vertically
+                    ),
+                  )
+                ],
+              ),
               child: Row(
                 children: <Widget>[
                   GestureDetector(

@@ -1,5 +1,6 @@
 import 'package:Susu_Messenger/models/login_user.dart';
 import 'package:Susu_Messenger/screens/authenticate/login.dart';
+import 'package:Susu_Messenger/screens/authenticate/login_testing.dart';
 import 'package:Susu_Messenger/screens/navigation_wrapper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class Landing extends StatelessWidget {
     if (user == null) {
       print("NO User");
       return Login();
+      // return LoginTesting();
     } else {
       print("Have a user logged in");
       return NavigationWrapper();

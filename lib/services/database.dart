@@ -59,10 +59,10 @@ class User_DatabaseService {
 
   // all conversation
   List<Conversation> _messageList(QuerySnapshot snapshot) {
-    print("Inside _messageList");
+    // print("Inside _messageList");
 
     return snapshot.docs.map((doc) {
-      print("Inside snapshot");
+      // print("Inside snapshot");
       final dataInfo = doc.data();
       // print(dataInfo['date']);
 
@@ -78,7 +78,7 @@ class User_DatabaseService {
   //Get all conversation
   Stream<List<Conversation>> chatroomMesssages({String chatroomID}) {
     //print('in allUserData');
-    print("Inside getChatroomMesssages");
+    // print("Inside getChatroomMesssages");
     return chatroomCollection
         .doc(chatroomID)
         .collection("chats")

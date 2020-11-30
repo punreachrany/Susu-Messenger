@@ -90,7 +90,7 @@ class _SignUpInfoState extends State<SignUpInfo> {
                     children: <Widget>[
                       Container(
                         child: Text(
-                          '이메일',
+                          'Email',
                           style: TextStyle(
                             fontSize: 36,
                           ),
@@ -98,7 +98,7 @@ class _SignUpInfoState extends State<SignUpInfo> {
                       ),
                       Container(
                         child: Text(
-                          '회원가입',
+                          'Registration',
                           style: TextStyle(
                             fontSize: 36,
                             fontWeight: FontWeight.bold,
@@ -269,7 +269,7 @@ class _SignUpInfoState extends State<SignUpInfo> {
                                 alignment: Alignment.centerLeft,
                                 child: Checkbox(
                                   value: checkBoxValue,
-                                  activeColor: HexColor('#53BDF9'),
+                                  activeColor: Color(0xFF2980b9),
                                   //tristate: true,
                                   onChanged: (bool newValue) {
                                     setState(() {
@@ -287,7 +287,7 @@ class _SignUpInfoState extends State<SignUpInfo> {
                               //padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 //'hhahaha',
-                                '회원가입 시 이용약과, 개인정보처리방침, 위치기반 서비스 이용약관에 동의합니다.',
+                                'I accept the terms and policies of this SUSU mobile messenger application.',
                                 overflow: TextOverflow.ellipsis,
                                 textDirection: TextDirection.ltr,
                                 textAlign: TextAlign.justify,
@@ -345,9 +345,9 @@ class _SignUpInfoState extends State<SignUpInfo> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-                          color: HexColor('#53BDF9'),
+                          color: Color(0xFF2980b9),
                           child: Text(
-                            '가입완료 (2/2)',
+                            'Complete (2/2)',
                             style: TextStyle(
                               color: Colors.white,
                               //letterSpacing: 1.5,

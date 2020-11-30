@@ -53,15 +53,16 @@ class _SignUpState extends State<SignUp> {
                 children: <Widget>[
                   Container(
                     child: Text(
-                      '이메일',
+                      'Email',
                       style: TextStyle(
                         fontSize: 36,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                   Container(
                     child: Text(
-                      '회원가입',
+                      'Registration',
                       style: TextStyle(
                         fontSize: 36,
                         fontWeight: FontWeight.bold,
@@ -72,15 +73,19 @@ class _SignUpState extends State<SignUp> {
                     height: 50,
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: 5.0),
+                    padding:
+                        EdgeInsets.symmetric(vertical: 3.0, horizontal: 15),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey[300], width: 2),
+                        borderRadius: BorderRadius.circular(20)),
                     child: TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
-                        border: UnderlineInputBorder(),
-                        hintText: '이메일 입력',
+                        border: InputBorder.none,
+                        hintText: 'Input your email',
                         hintStyle: TextStyle(
                           color: Colors.grey[600],
-                          fontSize: 20,
+                          fontSize: 16,
                         ),
                       ),
                       validator: (val) => val.isEmpty || !val.contains('@')
@@ -91,15 +96,20 @@ class _SignUpState extends State<SignUp> {
                       },
                     ),
                   ),
+                  SizedBox(height: 10),
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: 5.0),
+                    padding:
+                        EdgeInsets.symmetric(vertical: 3.0, horizontal: 15),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey[300], width: 2),
+                        borderRadius: BorderRadius.circular(20)),
                     child: TextFormField(
                       decoration: InputDecoration(
-                        border: UnderlineInputBorder(),
-                        hintText: '비밀번호 입력',
+                        border: InputBorder.none,
+                        hintText: 'Input your password',
                         hintStyle: TextStyle(
                           color: Colors.grey[600],
-                          fontSize: 20,
+                          fontSize: 16,
                         ),
                       ),
                       validator: (val) => val.length < 6
@@ -111,15 +121,20 @@ class _SignUpState extends State<SignUp> {
                       obscureText: true,
                     ),
                   ),
+                  SizedBox(height: 10),
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: 5.0),
+                    padding:
+                        EdgeInsets.symmetric(vertical: 3.0, horizontal: 15),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey[300], width: 2),
+                        borderRadius: BorderRadius.circular(20)),
                     child: TextFormField(
                       decoration: InputDecoration(
-                        border: UnderlineInputBorder(),
-                        hintText: '비밀번호 확인',
+                        border: InputBorder.none,
+                        hintText: 'Input your password again',
                         hintStyle: TextStyle(
                           color: Colors.grey[600],
-                          fontSize: 20,
+                          fontSize: 16,
                         ),
                       ),
                       validator: (val) =>
@@ -152,9 +167,9 @@ class _SignUpState extends State<SignUp> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
-                      color: HexColor('#53BDF9'),
+                      color: Color(0xFF2980b9),
                       child: Text(
-                        '다음 (1/2)',
+                        'Next (1/2)',
                         style: TextStyle(
                           color: Colors.white,
                           //letterSpacing: 1.5,

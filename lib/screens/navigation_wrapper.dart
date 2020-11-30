@@ -36,7 +36,7 @@ class _NavigationWrapperState extends State<NavigationWrapper> {
     double width = MediaQuery.of(context).size.width;
     final user = Provider.of<LoginUser>(context);
 
-    print("In Navigation Wrapper : ${user.uid}");
+    // print("In Navigation Wrapper : ${user.uid}");
 
     //
 
@@ -125,7 +125,7 @@ class _NavigationWrapperState extends State<NavigationWrapper> {
               MaterialButton(
                 onPressed: () {
                   setState(() {
-                    currentScreen = SettingWrapper();
+                    currentScreen = DeveloperWrapper();
                     currentTab = 2;
                   });
                 },
@@ -133,12 +133,12 @@ class _NavigationWrapperState extends State<NavigationWrapper> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Icon(
-                      Icons.settings,
+                      Icons.developer_mode,
                       color:
                           currentTab == 2 ? bottomNavigatorColor : Colors.grey,
                     ),
                     Text(
-                      "Setting",
+                      "Developer",
                       style: TextStyle(
                         color: currentTab == 2
                             ? bottomNavigatorColor
@@ -155,7 +155,7 @@ class _NavigationWrapperState extends State<NavigationWrapper> {
               MaterialButton(
                 onPressed: () {
                   setState(() {
-                    currentScreen = DeveloperWrapper();
+                    currentScreen = SettingWrapper();
                     currentTab = 3;
                   });
                 },
@@ -163,12 +163,12 @@ class _NavigationWrapperState extends State<NavigationWrapper> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Icon(
-                      Icons.developer_mode,
+                      Icons.settings,
                       color:
                           currentTab == 3 ? bottomNavigatorColor : Colors.grey,
                     ),
                     Text(
-                      "Developer",
+                      "Settings",
                       style: TextStyle(
                         color: currentTab == 3
                             ? bottomNavigatorColor

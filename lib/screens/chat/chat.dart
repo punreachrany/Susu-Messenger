@@ -33,18 +33,82 @@ class _ChatState extends State<Chat> {
     //   print(university.id);
     // });
     return Scaffold(
+      backgroundColor: Colors.grey[100],
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(
           children: <Widget>[
+            // SafeArea(
+            //   child: Container(
+            //     padding: EdgeInsets.only(left: 16, right: 16, top: 10),
+            //     child: Row(
+            //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //       children: <Widget>[
+            //         Text(
+            //           "Chats",
+            //           style:
+            //               TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            //         ),
+            //         Container(
+            //           padding:
+            //               EdgeInsets.only(left: 8, right: 8, top: 2, bottom: 2),
+            //           height: 30,
+            //           decoration: BoxDecoration(
+            //               borderRadius: BorderRadius.circular(25),
+            //               color: Color(0xFF2980b9)),
+            //           child: Row(
+            //             children: <Widget>[
+            //               Icon(
+            //                 Icons.add,
+            //                 color: Colors.white,
+            //                 size: 20,
+            //               ),
+            //               SizedBox(
+            //                 width: 2,
+            //               ),
+            //               Text(
+            //                 "New",
+            //                 style: TextStyle(
+            //                   color: Colors.white,
+            //                   fontSize: 14,
+            //                   fontWeight: FontWeight.bold,
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         )
+            //       ],
+            //     ),
+            //   ),
+            // ),
+            // Container(
+            //   padding: EdgeInsets.all(16),
+            //   child: TextField(
+            //     decoration: InputDecoration(
+            //         hintText: "Search...",
+            //         hintStyle: TextStyle(color: Colors.grey[400]),
+            //         prefixIcon: Icon(
+            //           Icons.search,
+            //           color: Colors.grey[400],
+            //           size: 20,
+            //         ),
+            //         filled: true,
+            //         fillColor: Colors.grey[200],
+            //         contentPadding: EdgeInsets.all(8),
+            //         enabledBorder: OutlineInputBorder(
+            //             borderRadius: BorderRadius.circular(10),
+            //             borderSide: BorderSide(color: Colors.grey[100]))),
+            //   ),
+            // ),
+            // ListView.builder(itemBuilder: null)
             SafeArea(
               child: Container(
-                padding: EdgeInsets.only(left: 16, right: 16, top: 10),
+                padding: EdgeInsets.only(left: 16, right: 16, top: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      "Chats",
+                      "Chatrooms",
                       style:
                           TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                     ),
@@ -54,12 +118,12 @@ class _ChatState extends State<Chat> {
                       height: 30,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
-                          color: Colors.lightBlue[100]),
+                          color: Color(0xFF2980b9)),
                       child: Row(
                         children: <Widget>[
                           Icon(
                             Icons.add,
-                            color: Colors.black,
+                            color: Colors.white,
                             size: 20,
                           ),
                           SizedBox(
@@ -68,6 +132,7 @@ class _ChatState extends State<Chat> {
                           Text(
                             "New",
                             style: TextStyle(
+                              color: Colors.white,
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
                             ),
@@ -79,8 +144,22 @@ class _ChatState extends State<Chat> {
                 ),
               ),
             ),
+
             Container(
-              padding: EdgeInsets.all(16),
+              margin: EdgeInsets.all(16),
+              decoration: new BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.2),
+                    blurRadius: 10.0, // soften the shadow
+                    spreadRadius: 0.0, //extend the shadow
+                    offset: Offset(
+                      0.0, // Move to right 10  horizontally
+                      0.0, // Move to bottom 10 Vertically
+                    ),
+                  )
+                ],
+              ),
               child: TextField(
                 decoration: InputDecoration(
                     hintText: "Search...",
@@ -91,14 +170,13 @@ class _ChatState extends State<Chat> {
                       size: 20,
                     ),
                     filled: true,
-                    fillColor: Colors.grey[200],
+                    fillColor: Colors.white,
                     contentPadding: EdgeInsets.all(8),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.grey[100]))),
+                        borderSide: BorderSide(color: Colors.grey[500]))),
               ),
             ),
-            // ListView.builder(itemBuilder: null)
 
             ListView.separated(
               itemCount: universities.length,
@@ -156,72 +234,4 @@ class _ChatState extends State<Chat> {
       ),
     );
   }
-
-  // List<Map> groupChat = [
-  //   {"name": "Hanyang University", "picture": Icons.school},
-  //   {"name": "Yonsei University", "picture": Icons.school},
-  //   {"name": "Korea University", "picture": Icons.school},
-  //   {"name": "Seoul National University", "picture": Icons.school},
-  //   {"name": "Kyunghee University", "picture": Icons.school},
-  //   {"name": "Sungkyunkwan University", "picture": Icons.school},
-  //   {"name": "Jungang University", "picture": Icons.school},
-  //   {"name": "Sogang University", "picture": Icons.school},
-  //   {"name": "Kunkok University", "picture": Icons.school},
-  //   {"name": "Ewha University", "picture": Icons.school},
-  //   {"name": "Reach University", "picture": Icons.school},
-  // ];
-  // @override
-  // Widget build(BuildContext context) {
-  //   final AuthService _auth = AuthService();
-  //   final user = Provider.of<LoginUser>(context);
-  //   print("${user.uid}");
-  //   return Scaffold(
-  //     appBar: AppBar(
-  //       leading: Icon(
-  //         Icons.edit,
-  //         color: Colors.black,
-  //       ),
-  //       centerTitle: true,
-  //       backgroundColor: Colors.white,
-  //       title: Text(
-  //         "Chats",
-  //         style: TextStyle(color: Colors.black),
-  //       ),
-  //       actions: <Widget>[
-  //         IconButton(
-  //             icon: Icon(
-  //               Icons.search,
-  //               color: Colors.black,
-  //             ),
-  //             onPressed: () {}),
-  //         IconButton(
-  //             icon: Icon(
-  //               Icons.camera_alt,
-  //               color: Colors.black,
-  //             ),
-  //             onPressed: () {})
-  //       ],
-  //     ),
-  //     body: ListView.builder(
-  //       itemCount: groupChat.length,
-  //       itemBuilder: (context, index) {
-  //         return ListTile(
-  //           leading: Icon(groupChat[index]["picture"]),
-  //           title: Text(groupChat[index]["name"]),
-  //           subtitle: Text("People are talking"),
-  //           trailing: Icon(Icons.arrow_forward),
-  //           onTap: () {
-  //             print(groupChat[index]["name"]);
-  //             Navigator.push(
-  //               context,
-  //               MaterialPageRoute(
-  //                 builder: (context) => ChatroomWrapper(),
-  //               ),
-  //             );
-  //           },
-  //         );
-  //       },
-  //     ),
-  //   );
-  // }
 }
