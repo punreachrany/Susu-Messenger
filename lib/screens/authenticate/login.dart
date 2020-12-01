@@ -233,7 +233,7 @@ class _LoginState extends State<Login> {
                             ),
                             color: Color(0xFF2980b9),
                             child: Text(
-                              'Register a account',
+                              'Register an account',
                               style: TextStyle(
                                 color: Colors.white,
                                 //letterSpacing: 1.5,

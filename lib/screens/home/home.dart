@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     double appBarHeight = AppBar().preferredSize.height;
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(

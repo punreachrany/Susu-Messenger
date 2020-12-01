@@ -285,7 +285,7 @@ class _ChatroomState extends State<Chatroom> {
     // controller.animateTo(controller.position.maxScrollExtent,
     //     duration: Duration(milliseconds: 0), curve: Curves.easeOut);
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Colors.grey[50],
       // resizeToAvoidBottomInset: false,
       appBar: AppBar(
         toolbarHeight: 70,

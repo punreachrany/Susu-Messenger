@@ -48,6 +48,7 @@ class _NavigationWrapperState extends State<NavigationWrapper> {
         child: currentScreen,
       ),
       bottomNavigationBar: BottomAppBar(
+        color: Colors.white,
         child: Container(
           height: 60,
           width: width,

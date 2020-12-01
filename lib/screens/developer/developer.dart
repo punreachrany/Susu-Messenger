@@ -17,10 +17,12 @@ class _DeveloperState extends State<Developer> {
 
   @override
   Widget build(BuildContext context) {
+    final double opacity = 0.6;
+    final Color boxBorderColor = Colors.grey[300];
     return loading
         ? Loading()
         : Scaffold(
-            backgroundColor: Colors.grey[100],
+            backgroundColor: Colors.white,
             body: SingleChildScrollView(
               physics: BouncingScrollPhysics(),
               child: Column(
@@ -46,7 +48,7 @@ class _DeveloperState extends State<Developer> {
                               // color: Colors.white,
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.grey.withOpacity(0.3),
+                                  color: Colors.grey.withOpacity(opacity),
                                   blurRadius: 10.0, // soften the shadow
                                   spreadRadius: 0.0, //extend the shadow
                                   offset: Offset(
@@ -124,13 +126,13 @@ class _DeveloperState extends State<Developer> {
                         Container(
                           height: 100,
                           decoration: BoxDecoration(
-                            // border: Border.all(),
+                            border: Border.all(color: boxBorderColor),
                             borderRadius: BorderRadius.circular(10),
                             // color: Colors.white,
 
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.withOpacity(0.3),
+                                color: Colors.grey.withOpacity(opacity),
                                 blurRadius: 10.0, // soften the shadow
                                 spreadRadius: 0.0, //extend the shadow
                                 offset: Offset(
@@ -230,13 +232,12 @@ class _DeveloperState extends State<Developer> {
                           height: 100,
 
                           decoration: BoxDecoration(
-                            // border: Border.all(),
+                            border: Border.all(color: boxBorderColor),
                             borderRadius: BorderRadius.circular(10),
                             color: Colors.white,
-
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.withOpacity(0.3),
+                                color: Colors.grey.withOpacity(opacity),
                                 blurRadius: 10.0, // soften the shadow
                                 spreadRadius: 0.0, //extend the shadow
                                 offset: Offset(
@@ -280,14 +281,14 @@ class _DeveloperState extends State<Developer> {
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
-                            // border: Border.all(),
+                            border: Border.all(color: boxBorderColor),
                             borderRadius: BorderRadius.circular(10),
                             // borderRadius: BorderRadius.circular(10),
                             color: Colors.white,
 
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.withOpacity(0.3),
+                                color: Colors.grey.withOpacity(opacity),
                                 blurRadius: 10.0, // soften the shadow
                                 spreadRadius: 0.0, //extend the shadow
                                 offset: Offset(
@@ -331,11 +332,12 @@ class _DeveloperState extends State<Developer> {
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
+                            border: Border.all(color: boxBorderColor),
                             borderRadius: BorderRadius.circular(10),
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.withOpacity(0.3),
+                                color: Colors.grey.withOpacity(opacity),
                                 blurRadius: 10.0, // soften the shadow
                                 spreadRadius: 0.0, //extend the shadow
                                 offset: Offset(
@@ -386,11 +388,12 @@ class _DeveloperState extends State<Developer> {
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
+                            border: Border.all(color: boxBorderColor),
                             borderRadius: BorderRadius.circular(10),
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.withOpacity(0.3),
+                                color: Colors.grey.withOpacity(opacity),
                                 blurRadius: 10.0, // soften the shadow
                                 spreadRadius: 0.0, //extend the shadow
                                 offset: Offset(
@@ -434,11 +437,12 @@ class _DeveloperState extends State<Developer> {
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
+                            border: Border.all(color: boxBorderColor),
                             borderRadius: BorderRadius.circular(10),
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.withOpacity(0.3),
+                                color: Colors.grey.withOpacity(opacity),
                                 blurRadius: 10.0, // soften the shadow
                                 spreadRadius: 0.0, //extend the shadow
                                 offset: Offset(
@@ -484,9 +488,10 @@ class _DeveloperState extends State<Developer> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: Colors.white,
+                            border: Border.all(color: boxBorderColor),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.withOpacity(0.3),
+                                color: Colors.grey.withOpacity(opacity),
                                 blurRadius: 10.0, // soften the shadow
                                 spreadRadius: 0.0, //extend the shadow
                                 offset: Offset(
@@ -545,7 +550,7 @@ class _DeveloperState extends State<Developer> {
                       color: Colors.white,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withOpacity(0.3),
+                          color: Colors.grey.withOpacity(opacity),
                           blurRadius: 10.0, // soften the shadow
                           spreadRadius: 0.0, //extend the shadow
                           offset: Offset(
@@ -667,7 +672,7 @@ class _DeveloperState extends State<Developer> {
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.withOpacity(0.3),
+                                color: Colors.grey.withOpacity(opacity),
                                 blurRadius: 10.0, // soften the shadow
                                 spreadRadius: 0.0, //extend the shadow
                                 offset: Offset(
@@ -718,7 +723,7 @@ class _DeveloperState extends State<Developer> {
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.withOpacity(0.3),
+                                color: Colors.grey.withOpacity(opacity),
                                 blurRadius: 10.0, // soften the shadow
                                 spreadRadius: 0.0, //extend the shadow
                                 offset: Offset(
@@ -770,7 +775,7 @@ class _DeveloperState extends State<Developer> {
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.withOpacity(0.3),
+                                color: Colors.grey.withOpacity(opacity),
                                 blurRadius: 10.0, // soften the shadow
                                 spreadRadius: 0.0, //extend the shadow
                                 offset: Offset(

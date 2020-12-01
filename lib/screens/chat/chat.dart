@@ -33,7 +33,7 @@ class _ChatState extends State<Chat> {
     //   print(university.id);
     // });
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(
