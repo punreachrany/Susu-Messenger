@@ -2,6 +2,8 @@
 
 Susu Messenger Application is a mobile application allowing our target users especially students to communicate and inquire any particular information about their intended universities.
 
+Youtube link : https://www.youtube.com/watch?v=T9KQq5ZEDjQ
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
